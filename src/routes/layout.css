@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&family=Major+Mono+Display&display=swap');
+@import 'tailwindcss';
+
+@keyframes cascade {
+  0% {
+    /* opacity: 0; */
+    /* transform: rotate(45deg) translate(-4px, -4px); */
+    transform: translateY(-6px);
+  }
+  50% {
+    /* opacity: 1; */
+  }
+  100% {
+    /* opacity: 0; */
+    /* transform: rotate(45deg) translate(4px, 4px); */
+    transform: translateY(6px);
+  }
+}
+
+@theme {
+    --color-cs-dark: #252525;
+    --color-cs-light: #d5e1e1;
+
+    --animate-cascade-1: cascade 1.6s ease-in-out infinite alternate 0s;
+    --animate-cascade-2: cascade 1.6s ease infinite 0.2s;
+    --animate-cascade-3: cascade 1.6s ease infinite 0.4s;
+}
