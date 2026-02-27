@@ -56,7 +56,6 @@
 
 	const age = Math.abs(moment("2006-09-19").diff(moment(), "year"));
 	let scrollY = $state<number>(0);
-
 </script>
 
 <svelte:window bind:scrollY/>
