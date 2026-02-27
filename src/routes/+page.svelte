@@ -6,7 +6,6 @@
 		faInstagram,
 	} from "@fortawesome/free-brands-svg-icons";
 	import TitleScroll from "$lib/components/TitleScroll.svelte";
-	import SkillTile from "$lib/components/SkillTile.svelte";
 	import { faChevronDown, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 	import moment from "moment";
     import Timeline from "$lib/components/Timeline.svelte";
@@ -52,13 +51,10 @@
 		"Data Analyst": {
 			desc: "Data analyst is a new thing I learned and I still have to learn more.",
 			data: ["Python"],
-		},
+		}
 	};
 
-	let index = $state<number | null>(null);
-
 	const age = Math.abs(moment("2006-09-19").diff(moment(), "year"));
-
 	let scrollY = $state<number>(0);
 
 </script>
@@ -103,12 +99,6 @@
 			>
 			<Fa icon={faChevronDown} scale={1.1}/>
 			</span>
-			<!-- <span
-				class="block w-5 h-5 border-r-2 border-b-2 border-cs-dark -mb-1.5 opacity-0 animate-cascade-2"
-			></span> -->
-			<!-- <span
-				class="block w-5 h-5 border-r-2 border-b-2 border-cs-dark opacity-0 animate-cascade-3"
-			></span> -->
 		</div>
 	</div>
 	<div class="flex flex-col md:flex-row justify-center items-center h-screen">
@@ -183,7 +173,7 @@
 					href="https://github.com/edselford"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:text-green-200 transition-colors"
+					class="flex items-center gap-2 hover:text-green-200 transition-colors"
 				>
 					<Fa icon={faGithub} fw /> GitHub
 				</a>
@@ -191,7 +181,7 @@
 					href="https://www.linkedin.com/in/edsel-mustapa"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:text-green-200 transition-colors"
+					class="flex items-center gap-2 hover:text-green-200 transition-colors"
 				>
 					<Fa icon={faLinkedin} fw /> LinkedIn
 				</a>
@@ -199,7 +189,7 @@
 					href="https://instagram.com/edselpm"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="hover:text-green-200 transition-colors"
+					class="flex items-center gap-2 hover:text-green-200 transition-colors"
 				>
 					<Fa icon={faInstagram} fw /> Instagram
 				</a>

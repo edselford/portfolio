@@ -7,9 +7,9 @@
             title: "1st Place",
             text: "Lomba Kompetensi Siswa Provinsi (LKS SMK) 2024",
             images: [
+                "/lks-provinsi/IMG-20240426-WA0029.jpg",
                 "/lks-provinsi/IMG-20240425-WA0003.jpg",
                 "/lks-provinsi/IMG-20240426-WA0007(1).jpg",
-                "/lks-provinsi/IMG-20240426-WA0029.jpg",
             ],
         },
         {

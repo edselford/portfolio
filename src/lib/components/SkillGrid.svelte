@@ -13,7 +13,6 @@
 
 	let cellEls: (HTMLElement | null)[] = $state([null, null, null, null]);
 
-	// ── FLIP — smooth position animation ─────────────────────────────────────
 	async function handleClick(i: number) {
 		const isTablet =
 			typeof window !== 'undefined' &&
@@ -28,25 +27,17 @@
 			return;
 		}
 
-		// 1) Snapshot every cell's bounding rect BEFORE the state change
 		const firstRects = cellEls.map((el) => el?.getBoundingClientRect() ?? null);
 
-		// 2) Apply state change
 		index = nextIndex;
-		await tick(); // wait for DOM to update
+		await tick();
 
-		// 3) For each cell, compute the delta and animate ONLY the translate.
-		//    Skip the tile that is expanding or collapsing — its own CSS height
-		//    transition handles its animation. We only FLIP the tiles that are
-		//    repositioning (stacked ↔ natural, or stacked slot changes).
 		cellEls.forEach((el, idx) => {
 			if (!el) return;
 			const first = firstRects[idx];
 			if (!first) return;
 
-			// Skip the tile that just expanded (it animates height via CSS)
 			if (idx === nextIndex) return;
-			// Skip the tile that just collapsed (same reason)
 			if (idx === prevIndex) return;
 
 			const last = el.getBoundingClientRect();
@@ -67,7 +58,6 @@
 		});
 	}
 
-	// ── Tablet grid placement ────────────────────────────────────────────────
 	const natural: [number, number][] = [
 		[1, 1], [2, 1], [1, 2], [2, 2],
 	];
@@ -95,7 +85,6 @@
 </script>
 
 <div class="skills-section flex flex-col items-center w-full">
-	<!-- ══ MOBILE ═════════════════════════════════════════════════════ -->
 	<div class="mobile-layout w-full flex flex-col gap-2">
 		{#each entries as [key, value], i}
 			<SkillTile
@@ -105,7 +94,6 @@
 		{/each}
 	</div>
 
-	<!-- ══ TABLET ═════════════════════════════════════════════════════ -->
 	<div class="tablet-layout w-full max-w-2xl">
 		{#each entries as [key, value], i}
 			<div bind:this={cellEls[i]} class={cellClass(i)} style={tabletStyle(i)}>
@@ -117,7 +105,6 @@
 		{/each}
 	</div>
 
-	<!-- ══ DESKTOP ════════════════════════════════════════════════════ -->
 	<div class="desktop-layout w-full max-w-screen-2xl">
 		{#each entries as [key, value], i}
 			<div class="desktop-cell" style="flex:{index === i ? '2 1 0%' : '1 1 0%'};">
@@ -131,7 +118,6 @@
 </div>
 
 <style>
-	/* ── Visibility ─────────────────────────────────────────────────── */
 	.mobile-layout  { display: flex; }
 	.tablet-layout  { display: none; }
 	.desktop-layout { display: none; }
@@ -145,7 +131,6 @@
 		.desktop-layout { display: flex; }
 	}
 
-	/* ── Tablet grid ─────────────────────────────────────────────────── */
 	.tablet-layout {
 		grid-template-columns: 1fr 1fr;
 		grid-auto-rows: auto;
@@ -158,10 +143,6 @@
 		min-width: 0;
 	}
 
-	/*
-	 * Stacked tiles get an explicit pixel height so
-	 * the CSS transition in .skill-tile can interpolate 40px → Npx → 40px.
-	 */
 	.tablet-cell.is-stacked :global(.skill-tile) {
 		height: 81px;
 		min-height: unset;
@@ -170,7 +151,6 @@
 		justify-content: center;
 	}
 
-	/* ── Desktop ─────────────────────────────────────────────────────── */
 	.desktop-layout { flex-direction: row; align-items: flex-start; gap: 0.75rem; }
 	.desktop-cell   { min-width: 0; overflow: hidden; transition: flex 0.45s cubic-bezier(0.4, 0, 0.2, 1); }
 
