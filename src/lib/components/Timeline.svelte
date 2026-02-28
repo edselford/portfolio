@@ -6,6 +6,7 @@
             date: "April 2024",
             title: "1st Place",
             text: "Lomba Kompetensi Siswa Provinsi (LKS SMK) 2024",
+            field: "IT Software Solution for Business",
             images: [
                 "/lks-provinsi/IMG-20240426-WA0029.jpg",
                 "/lks-provinsi/IMG-20240425-WA0003.jpg",
@@ -16,6 +17,7 @@
             date: "August 2024",
             title: "Gold Medalist",
             text: "Lomba Kompetensi Siswa Nasional (LKS SMK) 2024",
+            field: "IT Software Solution for Business",
             images: [
                 "/lks-nasional/IMG-20240824-WA0078.jpg",
                 "/lks-nasional/IMG-20240821-WA0082.jpg",
@@ -27,6 +29,7 @@
             date: "November 2024",
             title: "1st Place",
             text: "National Selection for WorldSkills Asean 2025",
+            field: "IT Software Solution for Business",
             images: [
                 "/seleknas/IMG-20241109-WA0015.jpg",
                 "/seleknas/IMG_20241109_153800_740(1).jpg",
@@ -36,6 +39,7 @@
             date: "August 2025",
             title: "Gold Medalist",
             text: "WorldSkills Asean 2025 Manila",
+            field: "IT Software Solution for Business",
             images: [
                 "/worldskills-asean/IMG-20250829-WA0126.jpg",
                 "/worldskills-asean/IMG-20250829-WA0037.jpg",
@@ -49,6 +53,7 @@
             date: "November 2025",
             title: "Bronze Medalist",
             text: "WorldSkills Asia 2025 Taipei",
+            field: "Software Application Development",
             images: [
                 "/worldskills-asia/IMG_20251202_160129_917.jpg",
                 "/worldskills-asia/motion_photo_1473732990238573535.jpg",
@@ -61,7 +66,7 @@
 </script>
 
 <div class="flex items-center justify-center">
-    <div class="w-full max-w-5xl">
+    <div class="w-full max-w-6xl">
         <!-- desktop -->
         <div class="hidden lg:block">
             <!-- carousels -->
@@ -115,6 +120,9 @@
                         <p class="text-xs text-cs-dark leading-relaxed">
                             {item.text}
                         </p>
+                        <p class="text-xs text-cs-dark leading-relaxed opacity-75">
+                            {item.field}
+                        </p>
                     </div>
                 {/each}
             </div>
@@ -148,6 +156,9 @@
 
                         <p class="text-xs text-cs-dark leading-relaxed">
                             {item.text}
+                        </p>
+                        <p class="text-xs text-cs-dark leading-relaxed opacity-75">
+                            {item.field}
                         </p>
                     </div>
                 {/each}

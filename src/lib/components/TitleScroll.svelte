@@ -23,7 +23,7 @@
 </script>
 
 <div
-	class="font-major font-normal lg:text-[200px] sm:text-[100px] text-[50px] text-center"
+	class="font-major font-normal xl:text-[250px] lg:text-[190px] sm:text-[150px] xs:text-[90px] text-[50px] text-center"
 	style="transform: translateY({y}px)"
 >
 	{#each "EDsel".split('') as i}

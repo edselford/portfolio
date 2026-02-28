@@ -6,59 +6,19 @@
 		faInstagram,
 	} from "@fortawesome/free-brands-svg-icons";
 	import TitleScroll from "$lib/components/TitleScroll.svelte";
-	import { faChevronDown, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+	import {
+		faChevronDown,
+		faEnvelope,
+	} from "@fortawesome/free-solid-svg-icons";
+	import Timeline from "$lib/components/Timeline.svelte";
+	import SkillGrid from "$lib/components/SkillGrid.svelte";
+
 	import moment from "moment";
-    import Timeline from "$lib/components/Timeline.svelte";
-    import SkillGrid from "$lib/components/SkillGrid.svelte";
-
-	const skills = {
-		"Web Development": {
-			desc: "Web development is what I learned first, I've learned many languages and frameworks for the web.",
-			data: [
-				"Javascript",
-				"Typescript",
-				"React",
-				"TailwindCSS",
-				"PHP",
-				"Laravel",
-				"ASP.NET Core",
-				"NodeJS",
-				"MySQL",
-				"MongoDB",
-			],
-		},
-		"Mobile Development": {
-			desc: "Mobile development was part of the competition so I studied it. And i've been mastering it, especially android.",
-			data: [
-				"Java",
-				"Kotlin",
-				"Jetpack Compose",
-				"Flutter",
-				"Kotlin Multiplatform",
-			],
-		},
-		"Desktop Development": {
-			desc: "Desktop development is also part of the competition, and is scope-specific in c# with the .net.",
-			data: [
-				"C#",
-				".NET Core",
-				".NET Framework",
-				"Entity Framework",
-				"Winform",
-				"SQL Server",
-			],
-		},
-		"Data Analyst": {
-			desc: "Data analyst is a new thing I learned and I still have to learn more.",
-			data: ["Python"],
-		}
-	};
-
 	const age = Math.abs(moment("2006-09-19").diff(moment(), "year"));
 	let scrollY = $state<number>(0);
 </script>
 
-<svelte:window bind:scrollY/>
+<svelte:window bind:scrollY />
 
 <div class="font-sometype px-5 lg:px-40 h-screen cursor-default select-none">
 	<div class="mt-5 flex flex-row justify-between">
@@ -87,7 +47,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="h-full flex flex-col justify-center pb-10">
+	<div class="h-full flex flex-col justify-center pb-30">
 		<TitleScroll />
 	</div>
 	<div class="sticky bottom-20">
@@ -96,7 +56,7 @@
 				class="opacity-50 -mb-1.5 animate-cascade-1 transition-opacity duration-1000"
 				class:!opacity-0={scrollY > 50}
 			>
-			<Fa icon={faChevronDown} scale={1.1}/>
+				<Fa icon={faChevronDown} scale={1.1} />
 			</span>
 		</div>
 	</div>
@@ -136,7 +96,7 @@
 			{/each}
 		</div> -->
 
-		<SkillGrid {skills}/>
+		<SkillGrid />
 	</div>
 
 	<div class="flex flex-col justify-center items-center mt-52">
@@ -153,7 +113,7 @@
 
 	<div class="flex flex-col justify-center items-center mt-52">
 		<h1 class="text-center text-lg font-bold mb-10">Achievements</h1>
-		<Timeline/>
+		<Timeline />
 		<!-- <AchievementTimeline {achievements} /> -->
 	</div>
 

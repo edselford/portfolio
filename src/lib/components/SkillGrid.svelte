@@ -2,7 +2,48 @@
 	import SkillTile from './SkillTile.svelte';
 	import { tick } from 'svelte';
 
-	let { skills }: { skills: Record<string, { desc: string; data: string[] }> } = $props();
+	const skills = {
+		"Web Development": {
+			desc: "Web development is what I learned first, I've learned many languages and frameworks for the web.",
+			data: [
+				"Javascript",
+				"Typescript",
+				"React",
+				"TailwindCSS",
+				"PHP",
+				"Laravel",
+				"ASP.NET Core",
+				"NodeJS",
+				"MySQL",
+				"MongoDB",
+			],
+		},
+		"Mobile Development": {
+			desc: "Mobile development was part of the competition so I studied it. And i've been mastering it, especially android.",
+			data: [
+				"Java",
+				"Kotlin",
+				"Jetpack Compose",
+				"Flutter",
+				"Kotlin Multiplatform",
+			],
+		},
+		"Desktop Development": {
+			desc: "Desktop development is also part of the competition, and is scope-specific in c# with the .net.",
+			data: [
+				"C#",
+				".NET Core",
+				".NET Framework",
+				"Entity Framework",
+				"Winform",
+				"SQL Server",
+			],
+		},
+		"Data Analyst": {
+			desc: "Data analyst is a new thing I learned and I still have to learn more.",
+			data: ["Python"],
+		},
+	};
 
 	let index: number | null = $state(null);
 	const entries = $derived(Object.entries(skills));
@@ -105,7 +146,7 @@
 		{/each}
 	</div>
 
-	<div class="desktop-layout w-full max-w-screen-2xl">
+	<div class="desktop-layout w-full max-w-6xl">
 		{#each entries as [key, value], i}
 			<div class="desktop-cell" style="flex:{index === i ? '2 1 0%' : '1 1 0%'};">
 				<SkillTile
