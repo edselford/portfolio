@@ -30,7 +30,7 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t $REGISTRY/$IMAGE_NAME:${{ github.sha }} .
+          docker build --no-cache -t $REGISTRY/$IMAGE_NAME:${{ github.sha }} .
           docker push $REGISTRY/$IMAGE_NAME:${{ github.sha }}
 
       - name: Update Container App
